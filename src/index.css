@@ -1,3 +1,5 @@
 body {
     font-family: 'Noticia Text', serif;
+    background: url(./assets/images/background-min.jpg) no-repeat fixed;
+    background-size: 100% auto;
 }

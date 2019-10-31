@@ -1,0 +1,140 @@
+.Ave {
+    position: absolute;
+    text-align: left;
+    left: 45%;
+    width: 60%;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.Heading {
+    padding: 0 30px;
+    font-size: 35px;
+    text-align: left;
+    color: #f5f5f5;
+    cursor: default;
+}
+
+.AveButton {
+    padding: 0 95px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: left;
+    height: 100%;
+}
+
+.OnEffect {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 24px;
+    position: relative;
+    padding: 10px 50px 10px 20px;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+}
+
+.OnEffect .OnEffectBackground {
+    background: #f5f5f5;
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -1px;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.OnEffect:hover {
+    padding-right: 20px;
+    color: #1d1e22;
+}
+
+.OnEffect:hover .OnEffectBackground {
+    height: 100%;
+    width: 100%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+
+.OnEffect .OnEffectBackground:before, .OnEffect .OnEffectBackground:after {
+    content: '';
+    height: 2px;
+    width: 10px;
+    background: #f5f5f5;
+    position: absolute;
+    right: -2px;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.OnEffect .OnEffectBackground:before {
+    bottom: 3px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.OnEffect .OnEffectBackground:after {
+    top: 3px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.OnEffect:hover .OnEffectBackground:before,
+.OnEffect:hover .OnEffectBackground:after {
+    right: 0;
+}
+
+.OnEffect:hover .OnEffectBackground:before {
+    bottom: 6px;
+}
+
+.OnEffect:hover .OnEffectBackground:after {
+    top: 6px;
+}
+
+.AveEmersion {
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 375px, 0);
+    }
+    to {
+        transform: translate3d(0, 300px, 0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 375px, 0);
+    }
+    to {
+        transform: translate3d(0, 300px, 0);
+        opacity: 1
+    }
+}
