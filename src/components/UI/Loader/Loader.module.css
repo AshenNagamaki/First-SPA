@@ -6,8 +6,8 @@
   height: 2.5em;
   -webkit-animation-fLll-mode: both;
   animation-fill-mode: both;
-  -webkit-animation: load7 1.8s infinite ease-in-out;
-  animation: load7 1.8s infinite ease-in-out;
+  -webkit-animation: load 1.8s infinite ease-in-out;
+  animation: load 1.8s infinite ease-in-out;
 }
 
 .Loader {
@@ -40,7 +40,7 @@
   left: 3.5em;
 }
 
-@-webkit-keyframes load7 {
+@-webkit-keyframes load {
   0%,
   80%,
   100% {
@@ -51,7 +51,7 @@
   }
 }
 
-@keyframes load7 {
+@keyframes load {
   0%,
   80%,
   100% {

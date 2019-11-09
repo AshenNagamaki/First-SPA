@@ -1,0 +1,66 @@
+.Ave {
+    position: absolute;
+    text-align: left;
+    left: 45%;
+    width: 60%;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.Heading {
+    padding: 0 30px;
+    font-size: 35px;
+    text-align: left;
+    color: #f5f5f5;
+    cursor: default;
+}
+
+.AveButton {
+    display: inline-block;
+    text-align: left;
+    padding: 15px 35px;
+    margin: 0 85px;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #f5f5f5;
+    background: none;
+    border: 2px solid #f5f5f5;
+    transition: all 0.4s ease 0s;
+}
+
+.AveButton:hover {
+    color: #1d1e22;
+    background: #f5f5f5;
+    border: 2px solid none;
+    transition: all 0.4s ease 0s;
+}
+
+.AveEmersion {
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 375px, 0);
+    }
+    to {
+        transform: translate3d(0, 300px, 0);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 375px, 0);
+    }
+    to {
+        transform: translate3d(0, 300px, 0);
+        opacity: 1;
+    }
+}

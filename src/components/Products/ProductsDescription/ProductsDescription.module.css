@@ -1,0 +1,16 @@
+.ProductsDescription {
+    padding-top: 25px;
+    margin-left: 275px;
+    margin-bottom: 50px;
+    text-align: left;
+}
+
+.ProductsDescription h1 {
+    font-size: 40px;
+    line-height: 1.2;
+}
+
+.ProductsDescription article {
+    font-size: 15px;
+    font-weight: bold;
+}

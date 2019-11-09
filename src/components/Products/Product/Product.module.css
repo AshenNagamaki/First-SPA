@@ -1,0 +1,15 @@
+.Product {
+    width: 275px;
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #f5f5f5;
+    box-shadow: 0 2px 3px #cccccc;
+    margin: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.Product img {
+    width: 250px;
+    height: 250px;
+}

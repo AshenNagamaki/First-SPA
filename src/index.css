@@ -1,5 +1,20 @@
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
 body {
     font-family: 'Noticia Text', serif;
-    background: url(./assets/images/background-min.jpg) no-repeat fixed;
+    background: url(./assets/images/background-min.jpg) #1d1e22 no-repeat fixed;
     background-size: 100% auto;
+    margin: 0;
 }

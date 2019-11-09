@@ -1,8 +1,8 @@
 import React from 'react';
 
+import classes from './Layout.module.css';
 import NavigationItems from '../Navigation/NavigationItems/NavigationItems';
 import Auxiliary from '../../hoc/Auxiliary';
-import classes from './Layout.module.css';
 
 const Layout = ( props ) => {
     return (
