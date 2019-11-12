@@ -7,7 +7,7 @@ import FullProduct from '../../containers/FullProduct/FullProduct';
 
 const Products = ( props ) => {
 
-    const products = props.productsData.map(
+    const products = props.productsDataOnUse.map(
         product => {
             return (
                 <Link to={'/products/' + product.imageAlt} key={product.imageAlt}>
@@ -15,8 +15,7 @@ const Products = ( props ) => {
                         imageSource={product.imageSource} 
                         imageAlt={product.imageAlt} 
                         title={product.title} 
-                        price={product.price} />
-                        
+                        price={product.price} /> 
                 </Link>
             );
         }
