@@ -10,6 +10,7 @@ import Loader from '../../components/UI/Loader/Loader';
 const ProductsList = (props) => {
 
     const [productsData, setProductsData] = useState(null);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const url = 'https://footwear-c379c.firebaseio.com/productsData.json';
@@ -19,19 +20,22 @@ const ProductsList = (props) => {
             setProductsData(responseData);
         })
         .catch(responseError => {
+            setError(responseError);
         });
         return () => {
             abortController.abort();
         };
     }, []);
 
-    let sneakersProduct, hikingProduct, runningProduct, slipOnProduct;
+    let sneakersProduct, hikingProduct, runningProduct, slipOnProduct, errorMessage;
     
-    if (productsData) {
+    if (productsData && !error) {
         sneakersProduct = <Products productsDataOnUse={productsData['sneakers']}/>
         hikingProduct = <Products productsDataOnUse={productsData['hiking']}/>
         runningProduct = <Products productsDataOnUse={productsData['running']}/>
         slipOnProduct = <Products productsDataOnUse={productsData['slip-on']}/>
+    } else {
+        errorMessage = <section className={classes.ErrorMessage}>There are currently no products available.</section>
     };
 
     return (
@@ -40,13 +44,17 @@ const ProductsList = (props) => {
             <Route path={props.match.url + '/:type/:id'} exact component={FullProduct} />
 
             <ProductsDescription productsTitle='SNEAKERS' shortDescription='Shoes primarily designed for sports or other forms of physical exercise, but which are now also widely used for everyday wear.' />
-            {sneakersProduct || <Loader />}
+            {error ? errorMessage : (sneakersProduct || <Loader />)}
+
             <ProductsDescription productsTitle='HIKING BOOTS' shortDescription='Footwear specifically designed for protecting the feet and ankles during outdoor walking activities such as hiking.' />
-            {hikingProduct || <Loader />}
+            {error ? errorMessage : (hikingProduct || <Loader />)}
+
             <ProductsDescription productsTitle='RUNNING SHOE' shortDescription='Made for running over long distances.' />
-            {runningProduct || <Loader />}
+            {error ? errorMessage : (runningProduct || <Loader />)}
+
             <ProductsDescription productsTitle='SLIP-ON SHOE' shortDescription='Low, lace-less shoes. The style which is commonly seen, known as a loafer or slippers in American culture. Has a moccasin construction.' />
-            {slipOnProduct || <Loader />}
+            {error ? errorMessage : (slipOnProduct || <Loader />)}
+
         </div>
     );
 };

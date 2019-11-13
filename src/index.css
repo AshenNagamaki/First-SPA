@@ -15,6 +15,7 @@ html {
 body {
     font-family: 'Noticia Text', serif;
     background: url(./assets/images/background-min.jpg) #1d1e22 no-repeat fixed;
+    background-color: #1d1e22;
     background-size: 100% auto;
     margin: 0;
 }
