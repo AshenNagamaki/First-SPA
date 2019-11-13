@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Route } from 'react-router-dom';
 
 import classes from './ProductsList.module.css';
 import Products from '../../components/Products/Products';
 import ProductsDescription from '../../components/Products/ProductsDescription/ProductsDescription';
+import FullProduct from '../FullProduct/FullProduct';
 import Loader from '../../components/UI/Loader/Loader';
 
-const ProductsList = () => {
+const ProductsList = (props) => {
 
     const [productsData, setProductsData] = useState(null);
 
@@ -33,8 +35,9 @@ const ProductsList = () => {
     };
 
     return (
-        
         <div className={classes.ProductsList}>
+
+            <Route path={props.match.url + '/:type/:id'} exact component={FullProduct} />
 
             <ProductsDescription productsTitle='SNEAKERS' shortDescription='Shoes primarily designed for sports or other forms of physical exercise, but which are now also widely used for everyday wear.' />
             {sneakersProduct || <Loader />}
