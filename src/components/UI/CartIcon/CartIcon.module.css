@@ -1,8 +1,8 @@
 .CartIcon {
     width: 25px;
     height: 25px;
-    transition: transform 0.5s;
     margin: 0;
+    transition: transform 0.5s;
 }
 
 .CartIcon:hover {

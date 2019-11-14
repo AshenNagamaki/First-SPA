@@ -9,16 +9,22 @@
     cursor: pointer;
 }
 
-.Product img {
+.ProductImage {
     width: 250px;
     height: 250px;
 }
 
-.Product div {
+.ProductPrice {
     font-size: 14px;
     font-weight: bold;
     opacity: 0.75;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+}
+
+.CartIconAdd {
+    width: 25px;
+    height: 25px;
+    margin: 0;
 }
 
 .ProductEmersion {
