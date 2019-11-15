@@ -37,23 +37,22 @@ const ProductsList = (props) => {
     } else {
         errorMessage = <section className={classes.ErrorMessage}>There are currently no products available.</section>
     };
-
     return (
         <div className={classes.ProductsList}>
 
             <Route path={props.match.url + '/:type/:id'} exact component={FullProduct} />
 
             <ProductsDescription productsTitle='SNEAKERS' shortDescription='Shoes primarily designed for sports or other forms of physical exercise, but which are now also widely used for everyday wear.' />
-            {error ? errorMessage : (sneakersProduct || <Loader />)}
+            {error ? errorMessage : (sneakersProduct || <Loader darkLoader/>)}
 
             <ProductsDescription productsTitle='HIKING BOOTS' shortDescription='Footwear specifically designed for protecting the feet and ankles during outdoor walking activities such as hiking.' />
-            {error ? errorMessage : (hikingProduct || <Loader />)}
+            {error ? errorMessage : (hikingProduct || <Loader darkLoader/>)}
 
             <ProductsDescription productsTitle='RUNNING SHOE' shortDescription='Made for running over long distances.' />
-            {error ? errorMessage : (runningProduct || <Loader />)}
+            {error ? errorMessage : (runningProduct || <Loader darkLoader/>)}
 
             <ProductsDescription productsTitle='SLIP-ON SHOE' shortDescription='Low, lace-less shoes. The style which is commonly seen, known as a loafer or slippers in American culture. Has a moccasin construction.' />
-            {error ? errorMessage : (slipOnProduct || <Loader />)}
+            {error ? errorMessage : (slipOnProduct || <Loader darkLoader/>)}
 
         </div>
     );
