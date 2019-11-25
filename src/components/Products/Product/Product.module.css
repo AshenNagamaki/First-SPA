@@ -21,12 +21,6 @@
     letter-spacing: 1px;
 }
 
-.CartIconAdd {
-    width: 25px;
-    height: 25px;
-    margin: 0;
-}
-
 .ProductEmersion {
     animation-duration: 1.5s;
     animation-fill-mode: both;
@@ -52,4 +46,4 @@
     to {
         opacity: 1;
     }
-}
+} 

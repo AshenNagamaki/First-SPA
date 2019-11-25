@@ -4,11 +4,14 @@ import { NavLink } from 'react-router-dom';
 import classes from './FullProduct.module.css';
 import closeIcon from '../../assets/icons/closeFullProductIcon.png';
 import Loader from '../../components/UI/Loader/Loader';
+import { useStore } from '../../hooks-store/store';
 
 const FullProduct = ( props ) => {
 
     const [productData, setProductData] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
+    
+    const dispatch = useStore()[1];
     
     useEffect(() => {
         const url = `https://footwear-c379c.firebaseio.com/productsData/${props.match.params.type}.json`;
@@ -29,6 +32,10 @@ const FullProduct = ( props ) => {
         props.history.push('/products');
     };
     
+    const addItemToCartHandler = product => {
+        dispatch('ADD_TO_CART', product);
+    };
+    
     let fullProductContent, errorAlert;
     
     if (productData && !errorMessage) {
@@ -37,7 +44,7 @@ const FullProduct = ( props ) => {
                 fullProductContent = (
                     <article>
                         <img className={classes.FullProductImage} src={product.imageSource} alt={product.imageAlt}/>
-                        <button className={`${classes.FullProductButton} ${classes.Add}`}>ADD TO CART</button>
+                        <button className={`${classes.FullProductButton} ${classes.Add}`} onClick={() => addItemToCartHandler(product)}>ADD TO CART</button>
                         <section  className={classes.FullProductContent}>
                             <h2 className={classes.FullProductTitle}>{product.title}</h2>
                             <p><b>Type:</b> {product.type}</p>

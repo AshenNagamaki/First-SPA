@@ -4,6 +4,9 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
+import configureCartStore from './hooks-store/cart-store';
+
+configureCartStore();
 
 const app = (
     <BrowserRouter>
