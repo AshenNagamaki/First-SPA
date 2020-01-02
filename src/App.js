@@ -5,6 +5,7 @@ import Layout from './components/Layout/Layout';
 import Ave from './components/Ave/Ave';
 import ProductsList from './containers/ProductsList/ProductsList';
 import Contacts from './components/Contacts/Contacts';
+import About from './components/About/About';
 import Cart from './containers/Cart/Cart';
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
                 <Route path="/" exact component={Ave} />
                 <Route path="/products" component={ProductsList} />
                 <Route path="/contacts" component={Contacts} />
+                <Route path="/about" component={About} />
                 <Route path="/cart" component={Cart} />
             </Switch>
         </Layout>

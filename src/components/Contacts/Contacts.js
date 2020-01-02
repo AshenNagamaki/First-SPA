@@ -5,7 +5,7 @@ import classes from './Contacts.module.css';
 const Contacts = () => {
     return (
         <div className={classes.ContactUsLogo}>
-            <p className={classes.ContactUsTitle}>CONTACT US</p>
+            <section className={classes.ContactUsTitle}>CONTACT US</section>
             <p className={classes.ContactUsPart}>
                 Please feel free to contact us if you have any questions, if you need any further information or to make suggestions as to how a process might be improved.
             </p>
