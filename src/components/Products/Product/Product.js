@@ -8,7 +8,7 @@ const Product = ( props ) => {
             <article className={classes.Product}>
                 <img className={classes.ProductImage} src={props.imageSource} alt={props.imageAlt} />
                 <h1>{props.title}</h1>
-                <div className={classes.ProductPrice}>{`$${props.price}`}</div>
+                <div className={classes.ProductPrice}>{`$${props.price.toFixed(2)}`}</div>
             </article>
         </div>
 

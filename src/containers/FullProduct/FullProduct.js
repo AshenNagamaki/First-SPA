@@ -51,7 +51,7 @@ const FullProduct = ( props ) => {
                             <p><b>Color:</b> {product.color}</p>
                             <p><b>Made By:</b> {product.madeBy} in {product.country}</p>
                             <p><b>License:</b> {product.license}</p>
-                            <p><b>Price:</b> ${product.price}</p>
+                            <p><b>Price:</b> ${product.price.toFixed(2)}</p>
                         </section>
                         <NavLink className={`${classes.FullProductButton} ${classes.Checkout}`} to="/cart">CHECKOUT</NavLink>
                     </article>
