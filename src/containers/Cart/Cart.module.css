@@ -46,6 +46,12 @@
     transition: all 0.4s ease 0s;
 }
 
+.CartInside button[disabled] {
+    color: #f5f5f5;
+    background: #1d1e22;
+    cursor: default;
+}
+
 .EmptyCart {
     display: flex;
     width: 100%;

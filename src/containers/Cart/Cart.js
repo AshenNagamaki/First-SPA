@@ -6,11 +6,15 @@ import { useStore } from '../../hooks-store/store';
 
 const Cart = () => {
     const [state, dispatch] = useStore();
-    const [isNotSavedLocally, setIsNotSavedLocally] = useState(true);
+    const [isFromStorage, setIsFromStorage] = useState(false);
 
-    if (isNotSavedLocally) {
+    if (!(isFromStorage)) {
         dispatch('FILL_THE_CART', JSON.parse(localStorage.getItem('currentCart')))
-        setIsNotSavedLocally(false);
+        setIsFromStorage(true);
+    };
+
+    const addItemToCartHandler = product => {
+        dispatch('ADD_TO_CART', product);
     };
     
     const removeItemFromCartHandler = product => {
@@ -65,8 +69,9 @@ const Cart = () => {
                         <td><img src={cartInside.imageSource} alt={cartInside.imageAlt}/></td>
                         <td><p><strong>{cartInside.title.toUpperCase()}</strong></p><p>{cartInside.country} ({cartInside.madeBy})</p></td>
                         <td>$<strong>{cartInside.price.toFixed(2)} x {cartItemsQuantity[cartInside.title]}</strong></td>
+                        <td><button onClick={() => addItemToCartHandler(cartInside)}>ADD</button></td>
                         <td><button onClick={() => removeItemFromCartHandler(cartInside)}>REMOVE</button></td>
-                        <td><button onClick={() => removeAllItemsFromCartHandler(cartInside)}>REMOVE ALL</button></td>
+                        <td><button disabled={cartItemsQuantity[cartInside.title] === 1} onClick={() => removeAllItemsFromCartHandler(cartInside)}>REMOVE ALL</button></td>
                     </tr>
                 );
             }
