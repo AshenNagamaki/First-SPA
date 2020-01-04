@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import classes from './Cart.module.css';
@@ -6,6 +6,12 @@ import { useStore } from '../../hooks-store/store';
 
 const Cart = () => {
     const [state, dispatch] = useStore();
+    const [isNotSavedLocally, setIsNotSavedLocally] = useState(true);
+
+    if (isNotSavedLocally) {
+        dispatch('FILL_THE_CART', JSON.parse(localStorage.getItem('currentCart')))
+        setIsNotSavedLocally(false);
+    };
     
     const removeItemFromCartHandler = product => {
         dispatch('REMOVE_SINGLE_FROM_CART', product);

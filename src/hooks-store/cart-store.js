@@ -6,6 +6,7 @@ const configureStore = () => {
             const updatedCartItems = [...curState.cartItems];
             updatedCartItems.push(product);
             const updatedTotalPrice = curState.totalPrice + product.price;
+            localStorage.setItem('currentCart', JSON.stringify({ cartItems: updatedCartItems, totalPrice: updatedTotalPrice }));
             return { cartItems: updatedCartItems, totalPrice: updatedTotalPrice }
         },
         REMOVE_SINGLE_FROM_CART: (curState, product) => {
@@ -18,6 +19,7 @@ const configureStore = () => {
                     break;
                 };
             };
+            localStorage.setItem('currentCart', JSON.stringify({ cartItems: updatedCartItems, totalPrice: updatedTotalPrice }));
             return { cartItems: updatedCartItems, totalPrice: updatedTotalPrice}
         },
         REMOVE_ALL_FROM_CART: (curState, product) => {
@@ -28,10 +30,17 @@ const configureStore = () => {
                 };
             };
             const updatedCartItems = [...curState.cartItems].filter(cartItem => cartItem.title !== product.title);
+            localStorage.setItem('currentCart', JSON.stringify({ cartItems: updatedCartItems, totalPrice: updatedTotalPrice }));
             return { cartItems: updatedCartItems, totalPrice: updatedTotalPrice}
+        },
+        FILL_THE_CART: (curState, newState) => {
+            const updatedCartItems = newState.cartItems;
+            const updatedTotalPrice = newState.totalPrice;
+            return { cartItems: updatedCartItems, totalPrice: updatedTotalPrice }
         },
         CLEAR_CART: curState => {
             curState.cartItems.splice(0, curState.cartItems.length);
+            localStorage.clear();
             return { cartItems: curState.cartItems, totalPrice: 0 }
         }
     };
