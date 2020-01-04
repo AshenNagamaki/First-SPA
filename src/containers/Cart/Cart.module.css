@@ -1,8 +1,76 @@
 .Cart {
     width: 100%;
-    height: 775px;
+    min-height: 700px;
+    max-height: 1750px;
+    text-align: center;
     background-color: #f5f5f5;
     box-shadow: 0px -1px 5px -1px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 0px -1px 5px -1px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px -1px 5px -1px rgba(0, 0, 0, 0.75);
+}
+
+.Cart table {
+    margin: 0 175px;
+}
+
+.CartInside td {
+    padding: 20px 30px;
+}
+
+.CartInside img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #1d1e22;
+}
+
+.CartInside p {
+    margin: 0;
+}
+
+.CartInside button {
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: #1d1e22;
+    background: #f5f5f5;
+    border: 2px solid #1d1e22;
+    transition: all 0.4s ease 0s;
+    cursor: pointer;
+}
+
+    
+.CartInside button:hover {
+    color: #f5f5f5;
+    background: #1d1e22;
+    transition: all 0.4s ease 0s;
+}
+
+
+.CartTableHeaders {
+    visibility: hidden;
+}
+
+.BackToShop {
+    text-decoration: none;
+    text-align: center;
+    color: #1d1e22;
+    transition: all 0.3s ease 0s;
+}
+
+.BackToShop:hover {
+    padding: 5px;
+    background: #1d1e22;
+    color: #f5f5f5;
+    font-size: 35px;
+}
+
+.Currency {
+    opacity: 0.5;
+}
+
+.EmptyCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
