@@ -1,0 +1,100 @@
+.PaymentBoxWrapper {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+.PaymentBox {
+    margin-bottom: 75px;
+    padding: 35px 35px 50px;
+    /*padding-bottom: 75px;*/
+    display: grid;
+    grid-column-gap: 15px;
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(4, 90px);
+    grid-template-areas: "name name" "cardNumber cardNumber" "expirationDate securityCode" "submitButton submitButton";
+    background: #eeeeee;
+    text-align: left;
+    max-width: 550px;
+    border: 1px solid rgb(201, 201, 201);
+    box-shadow: 3px 5px 10px 0px rgba(0,0,0,0.75);
+}
+
+.PaymentBoxTitle {
+    margin: 0;
+    padding: 35px 192.5px;
+    font-size: 18px;
+    font-weight: bold;
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: rgb(201, 201, 201);
+    box-shadow: 3px 5px 10px 0px rgba(0,0,0,0.75);
+
+}
+
+
+
+
+
+.PaymentBoxField {
+    position: relative;
+}
+
+.PaymentBoxField input {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 5px;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #cecece;
+    border-radius: 3px;
+}
+
+.PaymentBox .PaymentBoxField:first-of-type {
+    grid-area: name;
+}
+
+.PaymentBox .PaymentBoxField:nth-of-type(2) {
+    grid-area: cardNumber;
+}
+
+.PaymentBox .PaymentBoxField:nth-of-type(3) {
+    grid-area: expirationDate;
+}
+
+.PaymentBox .PaymentBoxField:nth-of-type(4) {
+    grid-area: securityCode;
+}
+
+.PaymentBox .PaymentBoxField:nth-of-type(5) {
+    grid-area: submitButton;
+    margin-top: 35px;
+}
+
+.PaymentBox .PaymentBoxField:nth-of-type(5) input {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    background: #ff3a22;
+    transition: transform 0.75s;
+    cursor: pointer;
+}
+
+.PaymentBox .PaymentBoxField:nth-of-type(5) input[disabled] {
+    color: #f5f5f5;
+    background: #ff3c225e;
+    cursor: default;
+}
+
+.PaymentBox .PaymentBoxField:nth-of-type(5) input:not([disabled]):hover {
+    transform: scale(1.05);
+}

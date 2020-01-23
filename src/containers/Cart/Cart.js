@@ -1,17 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import PaymentBox from '../PaymentBox/PaymentBox';
 import classes from './Cart.module.css';
 import { useStore } from '../../hooks-store/store';
 
 const Cart = () => {
     const [state, dispatch] = useStore();
     const [isFromStorage, setIsFromStorage] = useState(false);
+    const [isReadyToPay, setIsReadyToPay] = useState(false);
 
-    if (!(isFromStorage)) {
+    if (!(isFromStorage) && (localStorage.getItem('currentCart') !== null)) {
         dispatch('FILL_THE_CART', JSON.parse(localStorage.getItem('currentCart')))
         setIsFromStorage(true);
     };
+
+    useEffect(() => {
+        setTimeout(() => {
+            window.scrollTo({
+                top: document.body.scrollHeight, 
+                left: 0, 
+                behavior: "smooth"
+            });
+        }, 50);
+    }, [isReadyToPay]);
 
     const addItemToCartHandler = product => {
         dispatch('ADD_TO_CART', product);
@@ -23,6 +35,14 @@ const Cart = () => {
     
     const removeAllItemsFromCartHandler = product => {
         dispatch('REMOVE_ALL_FROM_CART', product);
+    };
+    
+    const clearCartHandler = () => {
+        dispatch('CLEAR_CART');
+    };
+    
+    const paymentShowingHandler = () => {
+        setIsReadyToPay(true);
     };
     
     const cartItemsQuantity = {};
@@ -47,7 +67,7 @@ const Cart = () => {
     
     const cartTotal = (
         <tr className={classes.CartTotal}>
-            <th>TOTAL</th>
+            <th>TOTAL:</th>
             <th className={classes.CartTableHeaders}>Between</th>
             <td><strong>${state.totalPrice.toFixed(2)}</strong></td>
         </tr>
@@ -55,7 +75,8 @@ const Cart = () => {
     
     const cartNext = (
         <section>
-            <h1 className={classes.PaymentContinue}>CONTINUE TO <NavLink className={classes.BackToShop} to="/cart/payment">PAYMENT</NavLink> OR BACK TO <NavLink className={classes.BackToShop} to="/products">SHOP</NavLink></h1>
+            <button className={classes.CartClearButton} onClick={clearCartHandler}>CLEAR</button>
+            <h1 className={classes.PaymentContinue}>CONTINUE TO <span className={classes.BackToShop} onClick={paymentShowingHandler}>PAYMENT</span> OR BACK TO <NavLink className={classes.BackToShop} to="/products">SHOP</NavLink></h1>
         </section>
     );
     
@@ -96,6 +117,7 @@ const Cart = () => {
                 </tfoot>
             </table>
             {cartInsides && cartNext}
+            {isReadyToPay && <PaymentBox />}
         </div>
     );
 };
