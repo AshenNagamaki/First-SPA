@@ -61,25 +61,40 @@ const Cart = () => {
     const emptyCartContent = (
         <section>
             <h1 className={classes.EmptyCart}>YOUR CART IS CURRENTLY EMPTY</h1>
-            <h1><NavLink className={classes.BackToShop} to="/products">BACK TO SHOP</NavLink></h1>    
+            <h1><NavLink className={classes.BackToShop} to="/products">RETURN TO SHOP</NavLink></h1>    
         </section>
     );
     
     const cartTotal = (
         <tr className={classes.CartTotal}>
-            <th>TOTAL:</th>
+            <th>TOTAL PRICE:</th>
             <th className={classes.CartTableHeaders}>Between</th>
             <td><strong>${state.totalPrice.toFixed(2)}</strong></td>
         </tr>
     );
     
-    const cartNext = (
+    let cartNext;
+    
+    if (!isReadyToPay) {
+        cartNext = (
+            <section>
+                <button className={classes.CartClearButton} onClick={clearCartHandler}>CLEAR</button>
+                <h1 className={classes.PaymentContinue}>
+                    CONTINUE TO <span className={classes.BackToShop} onClick={paymentShowingHandler}>PAYMENT</span> OR RETURN TO <NavLink className={classes.BackToShop} to="/products">SHOP</NavLink>
+                </h1>
+            </section>
+        );
+    } else {
+        cartNext = (
         <section>
             <button className={classes.CartClearButton} onClick={clearCartHandler}>CLEAR</button>
-            <h1 className={classes.PaymentContinue}>CONTINUE TO <span className={classes.BackToShop} onClick={paymentShowingHandler}>PAYMENT</span> OR BACK TO <NavLink className={classes.BackToShop} to="/products">SHOP</NavLink></h1>
+            <h1 className={classes.PaymentContinue}>
+                <NavLink className={classes.BackToShop} to="/products">RETURN TO SHOP</NavLink>
+            </h1>
         </section>
-    );
-    
+        );
+    };
+
     let cartInsides;
     
     if (state.cartItems.length) {
@@ -117,7 +132,7 @@ const Cart = () => {
                 </tfoot>
             </table>
             {cartInsides && cartNext}
-            {isReadyToPay && <PaymentBox />}
+            {cartInsides && isReadyToPay && <PaymentBox />}
         </div>
     );
 };

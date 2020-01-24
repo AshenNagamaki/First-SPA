@@ -44,7 +44,7 @@ const configureStore = () => {
             return { cartItems: curState.cartItems, totalPrice: 0 }
         }
     };
-    initStore(actions, {cartItems: [], totalPrice: 0});
+    initStore(actions, { cartItems: [], totalPrice: 0 });
 };
 
 export default configureStore;

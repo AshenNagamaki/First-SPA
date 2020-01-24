@@ -9,14 +9,9 @@
     justify-content: center;
 }
 
-
-
-
-
 .PaymentBox {
     margin-bottom: 75px;
     padding: 35px 35px 50px;
-    /*padding-bottom: 75px;*/
     display: grid;
     grid-column-gap: 15px;
     grid-template-columns: auto auto;
@@ -25,8 +20,8 @@
     background: #eeeeee;
     text-align: left;
     max-width: 550px;
-    border: 1px solid rgb(201, 201, 201);
-    box-shadow: 3px 5px 10px 0px rgba(0,0,0,0.75);
+    border: 1px solid #c9c9c9;
+    box-shadow: 3px 5px 10px 0px #000000bf;
 }
 
 .PaymentBoxTitle {
@@ -36,14 +31,9 @@
     font-weight: bold;
     border-width: 1px 1px 0 1px;
     border-style: solid;
-    border-color: rgb(201, 201, 201);
-    box-shadow: 3px 5px 10px 0px rgba(0,0,0,0.75);
-
+    border-color: #c9c9c9;
+    box-shadow: 3px 5px 10px 0px #000000bf;
 }
-
-
-
-
 
 .PaymentBoxField {
     position: relative;
