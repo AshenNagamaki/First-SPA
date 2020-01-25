@@ -11,7 +11,7 @@ const Cart = () => {
     const [isReadyToPay, setIsReadyToPay] = useState(false);
 
     if (!(isFromStorage) && (localStorage.getItem('currentCart') !== null)) {
-        dispatch('FILL_THE_CART', JSON.parse(localStorage.getItem('currentCart')))
+        dispatch('FILL_THE_CART', JSON.parse(localStorage.getItem('currentCart')));
         setIsFromStorage(true);
     };
 

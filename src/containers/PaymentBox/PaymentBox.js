@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import NumberFormat from 'react-number-format';
 
-import classes from './PaymentBox.module.css'
+import classes from './PaymentBox.module.css';
+import { useStore } from '../../hooks-store/store';
 
+const PaymentBox = ( props ) => {
 
-const PaymentBox = () => {
+    const dispatch = useStore()[1];
+
     const [ validationData, setValidationData ] = useState({
         holderName: '',
         number: '',
         expirationDate: '',
-        securityCode: ''
+        securityCode: '',
+        purchaseData: JSON.parse(localStorage.getItem('currentCart'))
     });
 
     const itemUpdateHandler = ( event, itemOnUpdate ) => {
@@ -26,12 +31,32 @@ const PaymentBox = () => {
         /^\d+$/.test(validationData.expirationDate.replace(/ /g,'').split('/').join('')) && 
         /^\d+$/.test(validationData.securityCode);
 
+
+    const submitPaymentHandler = ( event ) => {
+        event.preventDefault();
+        const url = 'https://footwear-c379c.firebaseio.com/customersData/payments.json';
+        const abortController = new AbortController();
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(validationData)
+        }, { signal: abortController.signal });
+        dispatch('CLEAR_CART');
+        return () => {
+            abortController.abort();
+        };
+    };
+    
+    const returnHandler = ( event ) => {
+        event.preventDefault();
+        props.history.push('/products');
+    };
+
     return (
         <section className={classes.PaymentBoxWrapper}>
 
             <p id="paymentDetails" className={classes.PaymentBoxTitle}>• Credit / Debit Card Details</p>
 
-            <form className={classes.PaymentBox}>
+            <form className={classes.PaymentBox} onSubmit={submitPaymentHandler}>
 
                 <div className={classes.PaymentBoxField}>
                     <label htmlFor="nameField">* Card Holder Name</label>
@@ -55,7 +80,7 @@ const PaymentBox = () => {
 
 
                 <div className={classes.PaymentBoxField}>
-                    <input disabled={!valid} type="submit" value="Pay Now"/>
+                    <input disabled={!valid} type="submit" value="Pay Now" onClick={returnHandler}/>
                 </div>
 
             </form>
@@ -63,4 +88,4 @@ const PaymentBox = () => {
     )
 };
 
-export default PaymentBox;
+export default withRouter(PaymentBox);
