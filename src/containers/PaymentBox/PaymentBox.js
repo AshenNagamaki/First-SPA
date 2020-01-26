@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
 import NumberFormat from 'react-number-format';
 
 import classes from './PaymentBox.module.css';
 import { useStore } from '../../hooks-store/store';
 
-const PaymentBox = ( props ) => {
+const PaymentBox = () => {
 
     const dispatch = useStore()[1];
 
     const [ validationData, setValidationData ] = useState({
-        holderName: '',
+        emailAddress: '',
         number: '',
         expirationDate: '',
         securityCode: '',
@@ -26,7 +25,7 @@ const PaymentBox = ( props ) => {
         event.preventDefault();
     };
 
-    const valid = validationData.holderName.length >= 2 && 
+    const valid = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(validationData.emailAddress) && 
         /^\d+$/.test(validationData.number.replace(/ /g,'')) && 
         /^\d+$/.test(validationData.expirationDate.replace(/ /g,'').split('/').join('')) && 
         /^\d+$/.test(validationData.securityCode);
@@ -45,11 +44,6 @@ const PaymentBox = ( props ) => {
             abortController.abort();
         };
     };
-    
-    const returnHandler = ( event ) => {
-        event.preventDefault();
-        props.history.push('/products');
-    };
 
     return (
         <section className={classes.PaymentBoxWrapper}>
@@ -59,8 +53,8 @@ const PaymentBox = ( props ) => {
             <form className={classes.PaymentBox} onSubmit={submitPaymentHandler}>
 
                 <div className={classes.PaymentBoxField}>
-                    <label htmlFor="nameField">* Card Holder Name</label>
-                    <input id="nameField" type="text" name="Card Holder Name" min-length="2" max-length="35" required onChange={( event ) => itemUpdateHandler(event, 'holderName')}/>
+                    <label htmlFor="emailField">* E-Mail Address</label>
+                    <input id="emailField" type="email" name="E-Mail Address" required onChange={( event ) => itemUpdateHandler(event, 'emailAddress')}/>
                 </div>
 
                 <div className={classes.PaymentBoxField}>
@@ -78,9 +72,8 @@ const PaymentBox = ( props ) => {
                     <NumberFormat id="securityCodeField" placeholder="XXX" format="###"  mask={['X', 'X', 'X']} required onChange={( event ) => itemUpdateHandler(event, 'securityCode')}/>
                 </div>
 
-
                 <div className={classes.PaymentBoxField}>
-                    <input disabled={!valid} type="submit" value="Pay Now" onClick={returnHandler}/>
+                    <input disabled={!valid} type="submit" value="Pay Now"/>
                 </div>
 
             </form>
@@ -88,4 +81,4 @@ const PaymentBox = ( props ) => {
     )
 };
 
-export default withRouter(PaymentBox);
+export default PaymentBox;

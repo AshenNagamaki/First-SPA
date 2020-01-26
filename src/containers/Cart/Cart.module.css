@@ -116,3 +116,8 @@
     margin: 0;
     padding: 75px;
 }
+
+.NextSteps {
+    font-size: 14px;
+    opacity: 0.6;
+}

@@ -39,6 +39,7 @@ const Cart = () => {
     
     const clearCartHandler = () => {
         dispatch('CLEAR_CART');
+        setIsReadyToPay(false);
     };
     
     const paymentShowingHandler = () => {
@@ -57,10 +58,11 @@ const Cart = () => {
     const cartItemsToShow = [...state.cartItems].filter((cartItem, index, self) => 
         index === self.findIndex(cI => cI.title === cartItem.title)
     );
-    
+
     const emptyCartContent = (
         <section>
-            <h1 className={classes.EmptyCart}>YOUR CART IS CURRENTLY EMPTY</h1>
+            <h1 className={classes.EmptyCart}>{isReadyToPay ? 'THANK YOU FOR SHOPPING WITH US!' : 'YOUR CART IS CURRENTLY EMPTY' }</h1>
+            <p className={classes.NextSteps}>{isReadyToPay && 'Next steps? Follow the instructions in the message, sent to your email.'}</p>
             <h1><NavLink className={classes.BackToShop} to="/products">RETURN TO SHOP</NavLink></h1>    
         </section>
     );
@@ -113,7 +115,7 @@ const Cart = () => {
             }
         );
     };
-    
+
     return (
         <div className={classes.Cart}>
             {!(cartInsides) && emptyCartContent}

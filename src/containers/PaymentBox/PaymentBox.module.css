@@ -16,7 +16,7 @@
     grid-column-gap: 15px;
     grid-template-columns: auto auto;
     grid-template-rows: repeat(4, 90px);
-    grid-template-areas: "name name" "cardNumber cardNumber" "expirationDate securityCode" "submitButton submitButton";
+    grid-template-areas: "email email" "cardNumber cardNumber" "expirationDate securityCode" "submitButton submitButton";
     background: #eeeeee;
     text-align: left;
     max-width: 550px;
@@ -50,7 +50,7 @@
 }
 
 .PaymentBox .PaymentBoxField:first-of-type {
-    grid-area: name;
+    grid-area: email;
 }
 
 .PaymentBox .PaymentBoxField:nth-of-type(2) {
