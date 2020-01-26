@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import PaymentBox from '../PaymentBox/PaymentBox';
 import classes from './Cart.module.css';
+import { PaymentBox } from '../PaymentBox/PaymentBox';
 import { useStore } from '../../hooks-store/store';
 
-const Cart = () => {
+export const Cart = () => {
     const [state, dispatch] = useStore();
     const [isFromStorage, setIsFromStorage] = useState(false);
     const [isReadyToPay, setIsReadyToPay] = useState(false);
@@ -138,5 +138,3 @@ const Cart = () => {
         </div>
     );
 };
-
-export default Cart;

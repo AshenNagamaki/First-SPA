@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './About.module.css';
 
-const About = () => {
+export const About = () => {
     return (
         <React.Fragment>
             <div className={classes.AboutHead}>
@@ -15,5 +15,3 @@ const About = () => {
         </React.Fragment>
     );
 };
-
-export default About;

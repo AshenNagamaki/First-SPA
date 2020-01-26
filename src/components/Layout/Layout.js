@@ -1,10 +1,10 @@
 import React from 'react';
 
 import classes from './Layout.module.css';
-import NavigationItems from '../Navigation/NavigationItems/NavigationItems';
-import Auxiliary from '../../hoc/Auxiliary';
+import { NavigationItems } from '../Navigation/NavigationItems/NavigationItems';
+import { Auxiliary } from '../../hoc/Auxiliary';
 
-const Layout = ( props ) => {
+export const Layout = ( props ) => {
     return (
         <Auxiliary>
             <header className={classes.LayoutHeader}>
@@ -14,5 +14,3 @@ const Layout = ( props ) => {
         </Auxiliary>
     );
 };
-
-export default Layout;

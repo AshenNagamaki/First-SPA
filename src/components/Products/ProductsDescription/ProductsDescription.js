@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './ProductsDescription.module.css';
 
-const ProductsDescription = ( props ) => {
+export const ProductsDescription = ( props ) => {
     return (
         <section className={classes.ProductsDescription}>
             <h1 className={classes.ProductsDescriptionTitle}>{props.productsTitle}</h1>
@@ -10,5 +10,3 @@ const ProductsDescription = ( props ) => {
         </section>
     );
 };
-
-export default ProductsDescription;

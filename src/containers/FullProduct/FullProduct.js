@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 import classes from './FullProduct.module.css';
 import closeIcon from '../../assets/icons/closeFullProductIcon.png';
-import Loader from '../../components/UI/Loader/Loader';
+import { Loader } from '../../components/UI/Loader/Loader';
 import { useStore } from '../../hooks-store/store';
 
-const FullProduct = ( props ) => {
+export const FullProduct = ( props ) => {
 
     const [productData, setProductData] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
@@ -70,5 +70,3 @@ const FullProduct = ( props ) => {
         </div>
     );
 };
-
-export default FullProduct;

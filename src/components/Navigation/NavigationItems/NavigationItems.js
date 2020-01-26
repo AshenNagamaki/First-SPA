@@ -1,10 +1,10 @@
 import React from 'react';
 
-import NavigationItem from './NavigationItem/NavigationItem';
-import CartIcon from '../../UI/CartIcon/CartIcon';
 import classes from './NavigationItems.module.css';
+import { NavigationItem } from './NavigationItem/NavigationItem';
+import { CartIcon } from '../../UI/CartIcon/CartIcon';
 
-const NavigationItems = () => (
+export const NavigationItems = () => (
     <ul className={classes.NavigationItems}>
         <NavigationItem link="/products">SHOP</NavigationItem>
         <NavigationItem link="/contacts">CONTACTS</NavigationItem>
@@ -14,5 +14,3 @@ const NavigationItems = () => (
         <NavigationItem link="/help" textFloat="right">HELP</NavigationItem>
     </ul>
 );
-
-export default NavigationItems;

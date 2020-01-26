@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './Loader.module.css';
 
-const Loader = ( props ) => {
+export const Loader = ( props ) => {
 
     let loaderColor = props.darkLoader ? classes.Dark : classes.Light;
 
@@ -12,5 +12,3 @@ const Loader = ( props ) => {
         </div>
     );
 };
-
-export default Loader;

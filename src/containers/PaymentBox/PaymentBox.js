@@ -4,7 +4,7 @@ import NumberFormat from 'react-number-format';
 import classes from './PaymentBox.module.css';
 import { useStore } from '../../hooks-store/store';
 
-const PaymentBox = () => {
+export const PaymentBox = () => {
 
     const dispatch = useStore()[1];
 
@@ -80,5 +80,3 @@ const PaymentBox = () => {
         </section>
     )
 };
-
-export default PaymentBox;

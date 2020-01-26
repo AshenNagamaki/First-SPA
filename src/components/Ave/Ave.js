@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import classes from './Ave.module.css';
 
-const Ave = () => {
+export const Ave = () => {
     return (
         <div className={classes.AveEmersion}>
             <section className={classes.Ave}>
@@ -13,5 +13,3 @@ const Ave = () => {
         </div>
     );
 };
-
-export default Ave;

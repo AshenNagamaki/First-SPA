@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
-import App from './App';
-import configureCartStore from './hooks-store/cart-store';
+import { App } from './App';
+import { configureStore } from './hooks-store/cart-store';
 
-configureCartStore();
+configureStore();
 
 const app = (
     <BrowserRouter>

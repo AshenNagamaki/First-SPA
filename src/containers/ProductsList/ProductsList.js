@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 
 import classes from './ProductsList.module.css';
-import Products from '../../components/Products/Products';
-import ProductsDescription from '../../components/Products/ProductsDescription/ProductsDescription';
-import FullProduct from '../FullProduct/FullProduct';
-import Loader from '../../components/UI/Loader/Loader';
+import { Products } from '../../components/Products/Products';
+import { ProductsDescription } from '../../components/Products/ProductsDescription/ProductsDescription';
+import { FullProduct }from '../FullProduct/FullProduct';
+import { Loader } from '../../components/UI/Loader/Loader';
 
-const ProductsList = (props) => {
+export const ProductsList = (props) => {
 
     const [productsData, setProductsData] = useState(null);
     const [error, setError] = useState(null);
@@ -57,5 +57,3 @@ const ProductsList = (props) => {
         </div>
     );
 };
-
-export default ProductsList;

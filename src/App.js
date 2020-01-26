@@ -1,15 +1,15 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Layout from './components/Layout/Layout';
-import Ave from './components/Ave/Ave';
-import ProductsList from './containers/ProductsList/ProductsList';
-import Contacts from './components/Contacts/Contacts';
-import About from './components/About/About';
-import Help from './components/Help/Help';
-import Cart from './containers/Cart/Cart';
+import { Layout } from './components/Layout/Layout';
+import { Ave } from './components/Ave/Ave';
+import { ProductsList } from './containers/ProductsList/ProductsList';
+import { Contacts } from './components/Contacts/Contacts';
+import { About } from './components/About/About';
+import { Help } from './components/Help/Help';
+import { Cart } from './containers/Cart/Cart';
 
-const App = () => {
+export const App = () => {
     return (
         <Layout>
             <Switch>
@@ -23,5 +23,3 @@ const App = () => {
         </Layout>
     );
 };
-
-export default App;

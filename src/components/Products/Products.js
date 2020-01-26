@@ -2,9 +2,9 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
 import classes from './Products.module.css';
-import Product from './Product/Product';
+import { Product } from './Product/Product';
 
-const Products = ( props ) => {
+export const Products = withRouter(( props ) => {
 
     const products = props.productsDataOnUse.map(
         product => {
@@ -25,6 +25,4 @@ const Products = ( props ) => {
             {products}
         </div>
     );
-};
-
-export default withRouter(Products);
+});

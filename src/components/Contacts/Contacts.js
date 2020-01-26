@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './Contacts.module.css';
 
-const Contacts = () => {
+export const Contacts = () => {
     return (
         <div className={classes.ContactUsLogo}>
             <section className={classes.ContactUsTitle}>CONTACT US</section>
@@ -32,5 +32,3 @@ const Contacts = () => {
         </div>
     );
 };
-
-export default Contacts;

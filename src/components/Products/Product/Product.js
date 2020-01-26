@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './Product.module.css';
 
-const Product = ( props ) => {
+export const Product = ( props ) => {
     return (
         <div className={classes.ProductEmersion}>
             <article className={classes.Product}>
@@ -14,5 +14,3 @@ const Product = ( props ) => {
 
     );
 };
-
-export default Product;

@@ -1,6 +1,6 @@
 import { initStore } from './store';
 
-const configureStore = () => {
+export const configureStore = () => {
     const actions = {
         ADD_TO_CART: (curState, product) => {
             const updatedCartItems = [...curState.cartItems];
@@ -46,5 +46,3 @@ const configureStore = () => {
     };
     initStore(actions, { cartItems: [], totalPrice: 0 });
 };
-
-export default configureStore;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './Help.module.css';
 
-const Help = () => {
+export const Help = () => {
     return (
         <div className={classes.HelpLogo}>
             <h1 className={classes.HelpLogoTitle}>Customer Service Care</h1>
@@ -10,5 +10,3 @@ const Help = () => {
         </div>
     );
 };
-
-export default Help;
